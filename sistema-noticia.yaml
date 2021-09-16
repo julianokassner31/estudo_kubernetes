@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name:  sistema-noticia
+  labels:
+    app: sistema-noticia
+spec:
+  containers:
+    - image: aluracursos/sistema-noticias:1
+      name: sistema-noticias-container
+      ports:
+        - containerPort: 80
+      envFrom:
+        - configMapKeyRef:
+            name: sistema-noticia-configmap
